@@ -21,17 +21,15 @@ def calculate_map_coordinates(center_x, center_z, grid_size, map_size):
 
     return map_centers
 
-try:
-    os.remove("mapcalc/coordinate.txt")
-except:
-    print("no  coordinates file skipping...")
+
+
 
 # Example usage:
 center_x = int(input("center x?  : "))
 center_z =  int(input("center z?  : "))
 grid_size =  int(input("grid size?: "))
 map_size =  int(input("map size?  : "))
-with  open("mapcalc/coordinate.txt","w") as f:
+with  open("coordinate.txt","w") as f:
     for i in range(grid_size):
         f.write("t\n")
 
@@ -39,7 +37,7 @@ with  open("mapcalc/coordinate.txt","w") as f:
 
 map_coordinates = calculate_map_coordinates(center_x, center_z, grid_size, map_size)
 
-with open("mapcalc/coordinate.txt","r") as file:
+with open("coordinate.txt","r") as file:
     data = file.readlines()
 
     
@@ -49,7 +47,7 @@ for row in map_coordinates:
     rowcount+=1
     
     
-with open('mapcalc/coordinate.txt', 'w') as file:
+with open('coordinate.txt', 'w') as file:
     file.writelines(data)
 
 
